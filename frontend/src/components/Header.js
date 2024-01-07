@@ -35,8 +35,9 @@ function Header() {
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              name="search"
             />
-            <Button variant="outline-light"><i class="bi bi-search"></i></Button>
+            <Button variant="outline-light"><i className="bi bi-search"></i></Button>
           </Form>
           <Nav>
           <Nav.Link href="/signup">Sign Up</Nav.Link>

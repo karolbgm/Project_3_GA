@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { createProject, deleteProject, getProjects} from "./ProjectAction";
+import { createProject, getProjects} from "./ProjectAction";
 // import { DeleteData, EditData } from "./PostFunction";
 
 

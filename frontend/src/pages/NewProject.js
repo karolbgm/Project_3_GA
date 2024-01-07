@@ -24,8 +24,8 @@ function NewProject(props) {
     const {isError,isProjectSuccess,message} = projectState
     // console.log(postState);
 
-    const projectData=async()=>{
-
+    const projectData=async(e)=>{
+        e.preventDefault()
         const data = new FormData()
         await data.append("file",image)
         await data.append("upload_preset","devPort")
@@ -70,7 +70,7 @@ function NewProject(props) {
         <Col>
         <ToastContainer/>
           <h1>New Project</h1>
-          <Form onSubmit="">
+          <Form onSubmit={projectData}>
             <Form.Group
               className="mb-3 text-start"
               controlId="validationCustom01"
@@ -101,7 +101,7 @@ function NewProject(props) {
             </Form.Group>
             <Form.Group
               className="mb-3 text-start"
-              controlId="validationCustom02"
+              controlId="validationCustom03"
             >
               <Form.Label>Tech Stack</Form.Label>
               <Form.Control
@@ -114,7 +114,7 @@ function NewProject(props) {
             </Form.Group>
             <Form.Group
               className="mb-3 text-start"
-              controlId="validationCustom02"
+              controlId="validationCustom04"
             >
               <Form.Label>Tags</Form.Label>
               <Form.Control
@@ -126,7 +126,7 @@ function NewProject(props) {
             </Form.Group>
             <Form.Group
               className="mb-3 text-start"
-              controlId="validationCustom02"
+              controlId="validationCustom05"
             >
               <Form.Label>GitHub Link</Form.Label>
               <Form.Control
@@ -139,7 +139,7 @@ function NewProject(props) {
             </Form.Group>
             <Form.Group
               className="mb-3 text-start"
-              controlId="validationCustom02"
+              controlId="validationCustom06"
             >
               <Form.Label>Deployed Link</Form.Label>
               <Form.Control
@@ -152,19 +152,19 @@ function NewProject(props) {
             </Form.Group>
             <Form.Group
               className="mb-3 text-start"
-              controlId="validationCustom02"
+              controlId="validationCustom07"
             >
               <Form.Label>Image</Form.Label>
               <Form.Control
                 required
                 type="file"
                 placeholder="Image"
-                value={image} onChange={(e)=>setImage(e.target.value)}
+                onChange={(e)=>setImage(e.target.files[0])}
               />
               <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
             </Form.Group>
 
-            <Button type="submit" variant="success" onClick={projectData}>
+            <Button type="submit" variant="success">
               Add Project
             </Button>
           </Form>
