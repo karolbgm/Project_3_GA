@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-// import { useDispatch,useSelector } from 'react-redux'
-// import { getProjects } from '../../Redux/Post/PostAction'
-// import { getUserfromLocalStorage } from '../../Utils/Utils'
+import { useDispatch,useSelector } from 'react-redux'
+import { getProjects } from '../Redux/Project/ProjectAction'
+import { getUserfromLocalStorage } from '../Utils/Utils'
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
@@ -30,6 +30,23 @@ const projectData = [
   ];
 
 function Home() {
+    const dispatch = useDispatch()
+
+  const projectState = useSelector((state)=>state.project)
+  const {projects,isError,isProjectSuccess,message} = projectState
+  //console.log(projectState);
+
+  const currentUser = getUserfromLocalStorage
+
+
+  useEffect(()=>{
+     async function fetchData(){
+      await dispatch(getProjects())
+     }
+     fetchData()
+
+  },[])
+
     return(
         <>
         <Banner/>
