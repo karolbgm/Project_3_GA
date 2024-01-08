@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createProject, getProjects, updateProject } from "./ProjectAction";
+
 // import { DeleteData, EditData } from "./ProjectFunction";
 
 const initialState = {
@@ -9,6 +10,7 @@ const initialState = {
   isProjectSuccess: true,
   message: "",
 };
+
 
 const EditData = (projects, projectId, newData) => {
   return projects.map((project) =>
@@ -58,6 +60,7 @@ export const projectSlice = createSlice({
         state.message = "error";
       })
 
+
       .addCase(updateProject.pending, (state) => {
         state.isLoading = true;
       })
@@ -100,5 +103,6 @@ export const projectSlice = createSlice({
     //     })
   },
 });
+
 
 export default projectSlice.reducer;

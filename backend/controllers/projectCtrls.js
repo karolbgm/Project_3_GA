@@ -42,6 +42,7 @@ exports.getAllProjects = async (req, res) => {
 };
 
 exports.deleteProject = async (req, res) => {
+
   await Project.findByIdAndDelete(req.params.id, (err) => {
     if (err) {
       res.status(500).send(err);
@@ -51,17 +52,15 @@ exports.deleteProject = async (req, res) => {
   });
 };
 
-exports.editProject = async (req, res) => {
-  Project.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    { new: true },
-    (err, updatedProject) => {
-      if (err) {
-        res.status(500).send(err);
-      } else {
-        res.status(200).send(updatedProject);
-      }
-    }
-  );
-};
+
+exports.editProject = async(req, res)=>{
+    Project.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedProject) => {
+        if(err) {
+            res.status(500).send(err)
+        } else {
+            res.status(200).send(updatedProject);
+       }
+    })
+}
+
+
