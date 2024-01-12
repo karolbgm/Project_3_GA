@@ -2,7 +2,7 @@
 
 devPort - Developer Port 
 
-A full CRUD app designed to provide community and a showplace for software developers
+A full-stack app designed to provide community and a showplace for software developers
 
 <img src="https://res.cloudinary.com/dzbkpvk1h/image/upload/v1704757622/SignUpPage_ugvwdh.png">
 <img src="https://res.cloudinary.com/dzbkpvk1h/image/upload/v1704757622/LogInPage_sw6ti8.png">
